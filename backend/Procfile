@@ -1,0 +1,1 @@
+web gunicorn runningtracker.wsgi:application --log-file -
