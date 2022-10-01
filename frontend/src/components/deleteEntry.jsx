@@ -1,5 +1,5 @@
 import React from 'react';
-const DeleteEntry = ({id,onClick}) => {
+const DeleteEntry = ({id,pollAPI}) => {
 
     const delEntry = () => {
         fetch(`https://pzruntracker.herokuapp.com/logs/${id}`, { method: 'DELETE',headers: {
@@ -10,7 +10,7 @@ const DeleteEntry = ({id,onClick}) => {
 
     const clickEvent = () => {
         delEntry();
-        onClick();
+        pollAPI();
     }
 
     return (

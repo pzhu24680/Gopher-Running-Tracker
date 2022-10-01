@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-const AddEntry = ({onClick}) => {
+const AddEntry = ({pollAPI}) => {
     const [add, setAdd] = useState(false);
     const [miles, setMiles] = useState("");
     const [avgPace, setAvgPace] = useState('');
@@ -25,7 +25,7 @@ const AddEntry = ({onClick}) => {
 
     const clickEvent = () => {
         post();
-        onClick();
+        pollAPI();
         setAdd(!add);
     }
 
