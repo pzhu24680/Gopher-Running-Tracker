@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Gopher-Running-Tracker/static/css/main.15ce1513.css",
+    "main.js": "/Gopher-Running-Tracker/static/js/main.432d80a6.js",
+    "static/js/787.9bcab224.chunk.js": "/Gopher-Running-Tracker/static/js/787.9bcab224.chunk.js",
+    "index.html": "/Gopher-Running-Tracker/index.html",
+    "main.15ce1513.css.map": "/Gopher-Running-Tracker/static/css/main.15ce1513.css.map",
+    "main.432d80a6.js.map": "/Gopher-Running-Tracker/static/js/main.432d80a6.js.map",
+    "787.9bcab224.chunk.js.map": "/Gopher-Running-Tracker/static/js/787.9bcab224.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15ce1513.css",
+    "static/js/main.432d80a6.js"
+  ]
+}
