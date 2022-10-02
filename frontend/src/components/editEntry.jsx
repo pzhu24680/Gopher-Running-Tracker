@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-const EditEntry = ({ id, onClick }) => {
+const EditEntry = ({ entry, editEntry }) => {
   const [editE, setEditE] = useState(false);
-  const [miles, setMiles] = useState(id.miles);
-  const [avgPace, setAvgPace] = useState(id.avgPace);
-  const [date, setDate] = useState(id.date);
-  const [additionalNotes, setAdditionalNotes] = useState(id.additionalNotes);
+  const [miles, setMiles] = useState(entry.miles);
+  const [avgPace, setAvgPace] = useState(entry.avgPace);
+  const [date, setDate] = useState(entry.date);
+  const [additionalNotes, setAdditionalNotes] = useState(entry.additionalNotes);
 
   const edit = () => {
     const data = {
@@ -13,7 +13,7 @@ const EditEntry = ({ id, onClick }) => {
       date: date,
       additionalNotes: additionalNotes,
     };
-    fetch(`https://pzruntracker.herokuapp.com/logs/${id.id}`, {
+    fetch(`https://pzruntracker.herokuapp.com/logs/${entry.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +60,12 @@ const EditEntry = ({ id, onClick }) => {
 
   const clickEvent = () => {
     edit();
-    onClick();
+    editEntry(entry.id, {
+      miles: miles,
+      avgPace: avgPace,
+      date: date,
+      additionalNotes: additionalNotes,
+    });
     setEditE(!editE);
   };
 

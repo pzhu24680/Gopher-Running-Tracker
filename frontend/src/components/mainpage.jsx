@@ -5,23 +5,48 @@ import EditEntry from "./editEntry";
 import Search from "./search";
 const Mainpage = () => {
   const [entryList, setEntryList] = useState([]);
-  const pollAPI = () => {
+  //   const isEntryListsEqual=(arr1,arr2)=>{
+  //     if(arr1.length!==arr2.length){
+  //         return false;
+  //     }
+  //     for(let i=0;i<arr1.length;i++){
+  //         if(JSON.stringify(arr1[i]) !== JSON.stringify(arr2[i])){
+  //             return false;
+  //         }
+  //     }
+  //     return true;
+  //   }
+  const pollAPI = (status) => {
     fetch("https://pzruntracker.herokuapp.com/logs/")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setEntryList(data);
-        console.log(entryList);
       });
   };
+  const removeEntry = (id) => {
+    setEntryList(entryList.filter((item) => item.id !== id));
+  };
+  const addEntry = (entry) => {
+    setEntryList([...entryList, entry]);
+  };
+  const editEntry = (id, newEntry) => {
+    let updatedEntryList = [...entryList];
+    for (let i = 0; i < updatedEntryList.length; i++) {
+      let entry = updatedEntryList[i];
+      if (entry.id == id) {
+        updatedEntryList[i] = newEntry;
+      }
+    }
+    setEntryList(updatedEntryList);
+  };
   useEffect(() => {
-    pollAPI();
-  }, [entryList]);
+    pollAPI("initialize");
+  }, []);
 
   return (
     <div>
       <div className="search-box">
-        <AddEntry pollAPI={pollAPI} />
+        <AddEntry addEntry={addEntry} />
         <Search id={entryList} />
       </div>
       <div className="entryList">
@@ -33,8 +58,8 @@ const Mainpage = () => {
             <div className="additional-notes">
               Additional Notes: {entry.additionalNotes}
             </div>
-            <EditEntry id={entry} pollAPI={pollAPI} />
-            <DeleteEntry id={entry.id} pollAPI={pollAPI} />
+            <EditEntry entry={entry} editEntry={editEntry} />
+            <DeleteEntry id={entry.id} removeEntry={removeEntry} />
           </div>
         ))}
       </div>

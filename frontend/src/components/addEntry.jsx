@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const AddEntry = ({ onClick }) => {
+const AddEntry = ({ addEntry }) => {
   const [add, setAdd] = useState(false);
   const [miles, setMiles] = useState("");
   const [avgPace, setAvgPace] = useState("");
@@ -53,7 +53,13 @@ const AddEntry = ({ onClick }) => {
   const clickEvent = () => {
     post();
     setAdd(!add);
-    onClick();
+    addEntry({
+        id: 0,
+        miles: miles,
+        avgPace: avgPace,
+        date: date,
+        additionalNotes: additionalNotes,
+      })
   };
 
   const post = () => {
