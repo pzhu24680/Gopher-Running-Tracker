@@ -12,7 +12,7 @@ body {
 main {
   min-height: 100vh;
   padding: 25px;
-  background-color: lightgray;
+  background-color: maroon;
 }
  
 .search-box {
@@ -22,7 +22,11 @@ main {
   margin-left: 0;
   margin-bottom: 30px;
   display: flex;
+  padding:20px;
   justify-content: space-between;
+  background-color: gold;
+  border-radius: 15px;
+  display:flex;
 }
  
 .search-box .search-bar-holder {
@@ -42,7 +46,7 @@ main {
   max-width: 100%;
   width: 100%;
   text-align: center;
-  display: flex;
+  justify-content: center;
   padding: 15px;
   border-radius: 15px;
   background-color:aliceblue;
@@ -64,6 +68,30 @@ main {
   appearance: None;
   box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+}
+ 
+.search-box .NotFound {
+  text-align: center;
+  justify-content: center;
+  border-radius: 15px;
+  float:left;
+  display:flex;
+  width:100%;
+}
+ 
+.search-box .NotFound .errorMessage {
+  margin-right: 15px;
+  margin-top: 15px;
+ 
+}
+ 
+.search-box .NotFound .exitSearch {
+  border-radius:15px;
+  outline: None;
+  border:None;
+  appearance: None;
+  background-color: antiquewhite;
+  box-shadow: 0px 2px rgba(0, 0, 0, 0.2);
 }
  
  
@@ -94,6 +122,7 @@ main {
 }
  
 .search-box .search-bar-holder .search-bar {
+  background-color: aliceblue;
   width: 50%;
   padding: 15px;
   display: block;
@@ -118,7 +147,8 @@ main {
 .search-box .search:hover,
 .dayEntry .deleteEntry:hover,
 .dayEntry .editEntry:hover,
-.search-box .searchedEntry .exitSearch:hover {
+.search-box .searchedEntry .exitSearch:hover,
+.search-box .NotFound .exitSearch:hover {
   background-color: bisque;
 }
  
