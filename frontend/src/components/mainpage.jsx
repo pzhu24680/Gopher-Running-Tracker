@@ -5,6 +5,7 @@ import EditEntry from "./editEntry";
 import Search from "./search";
 const Mainpage = () => {
   const [entryList, setEntryList] = useState([]);
+  const [query,setQuery]=useState('')
   const pollAPI = (status) => {
     fetch("https://pzruntracker.herokuapp.com/logs/")
       .then((response) => response.json())
@@ -15,6 +16,9 @@ const Mainpage = () => {
   const removeEntry = (id) => {
     setEntryList(entryList.filter((item) => item.id !== id));
   };
+  const handleSearch=(searchEntry)=>{
+    setQuery(searchEntry)
+  }
   const addEntry = (entry) => {
     setEntryList([...entryList, entry]);
   };
@@ -36,10 +40,21 @@ const Mainpage = () => {
     <div>
       <div className="search-box">
         <AddEntry addEntry={addEntry} />
-        <Search id={entryList} />
+        <Search handleSearch={handleSearch}/>
       </div>
       <div className="entryList">
-        {entryList.map((entry) => (
+        {query==''?entryList.map((entry) => (
+          <div className="dayEntry">
+            <div className="miles-ran">Miles Ran: {entry.miles}</div>
+            <div className="average-pace">Pace: {entry.avgPace}</div>
+            <div className="time">Date: {entry.date}</div>
+            <div className="additional-notes">
+              Additional Notes: {entry.additionalNotes}
+            </div>
+            <EditEntry entry={entry} editEntry={editEntry} />
+            <DeleteEntry id={entry.id} removeEntry={removeEntry} />
+          </div>
+        )):entryList.filter((entry)=>entry.date==query).map((entry) => (
           <div className="dayEntry">
             <div className="miles-ran">Miles Ran: {entry.miles}</div>
             <div className="average-pace">Pace: {entry.avgPace}</div>
@@ -52,6 +67,7 @@ const Mainpage = () => {
           </div>
         ))}
       </div>
+
     </div>
   );
 };
