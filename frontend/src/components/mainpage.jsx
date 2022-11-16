@@ -3,6 +3,7 @@ import AddEntry from "./addEntry";
 import DeleteEntry from "./deleteEntry";
 import EditEntry from "./editEntry";
 import Search from "./search";
+import SortButton from "./SortButton";
 const Mainpage = () => {
   const [entryList, setEntryList] = useState([]);
   const [query,setQuery]=useState('')
@@ -32,6 +33,26 @@ const Mainpage = () => {
     }
     setEntryList(updatedEntryList);
   };
+  const handleSort=(type)=>{
+    let sorted=[...entryList]
+    if(type==="miles"){
+        sorted.sort((entry1,entry2)=>{
+            if(entry1.miles<entry2.miles)return 1;
+            else if(entry1.miles==entry2.miles)return 0;
+            return -1;
+        })
+    }
+    if(type==="date"){
+        sorted.sort((entry1,entry2)=>{
+            let date1=new Date(entry1.date)
+            let date2=new Date(entry2.date)
+            if(date1<date2)return 1
+            else if(date1===date2) return 0
+            return -1
+        })
+    }
+    setEntryList(sorted)
+}
   useEffect(() => {
     pollAPI("initialize");
   }, []);
@@ -39,6 +60,7 @@ const Mainpage = () => {
   return (
     <div>
       <div className="search-box">
+        <SortButton handleSort={handleSort}/>
         <AddEntry addEntry={addEntry} />
         <Search handleSearch={handleSearch}/>
       </div>
