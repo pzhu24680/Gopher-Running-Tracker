@@ -1,9 +1,8 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import Mainpage from './components/mainpage';
 
 function App() {
-  // const [entries, setEntries] = useState(null);
   
 
   return (

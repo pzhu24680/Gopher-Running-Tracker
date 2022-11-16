@@ -92,7 +92,7 @@ const AddEntry = ({ addEntry }) => {
         DropDown()
       ) : (
         <button className="addButton" onClick={() => setAdd(!add)}>
-          Add Entry
+          Add
         </button>
       )}
     </div>

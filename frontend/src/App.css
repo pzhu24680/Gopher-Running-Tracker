@@ -38,62 +38,7 @@ main {
   text-align: center;
   display: flex;
 }
- 
-.search-box .searchedEntry {
-  text-align: center;
-  display: flex;
-  max-height: 50px;
-  max-width: 100%;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-  padding: 15px;
-  border-radius: 15px;
-  background-color:aliceblue;
-  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
-}
- 
- 
-.search-box .searchedEntry .average-pace, .search-box .searchedEntry .time, .search-box .searchedEntry .additional-notes {
-  margin-left: 2%;
-}
- 
-.search-box .searchedEntry .additional-notes {
-  margin-right: 2%;
-}
- 
-.search-box .searchedEntry .exitSearch {
-  background-color: antiquewhite;
-  border: None;
-  appearance: None;
-  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-}
- 
-.search-box .NotFound {
-  text-align: center;
-  justify-content: center;
-  border-radius: 15px;
-  float:left;
-  display:flex;
-  width:100%;
-}
- 
-.search-box .NotFound .errorMessage {
-  margin-right: 15px;
-  margin-top: 15px;
- 
-}
- 
-.search-box .NotFound .exitSearch {
-  border-radius:15px;
-  outline: None;
-  border:None;
-  appearance: None;
-  background-color: antiquewhite;
-  box-shadow: 0px 2px rgba(0, 0, 0, 0.2);
-}
- 
+
  
 .search-box .addEntries {
   margin-left: 10%;
@@ -107,6 +52,7 @@ main {
   appearance: None;
   border: None;
   max-height: 50px;
+  width: 70px;
 }
  
 .search-box .addEntries .form {
@@ -147,9 +93,40 @@ main {
 .search-box .search:hover,
 .dayEntry .deleteEntry:hover,
 .dayEntry .editEntry:hover,
-.search-box .searchedEntry .exitSearch:hover,
-.search-box .NotFound .exitSearch:hover {
+.search-box .sortButtonWrapper .sortButton:hover {
   background-color: bisque;
+}
+
+.search-box .sortButtonWrapper .selectSort:hover {
+  background-color:whitesmoke;
+}
+
+.search-box .sortButtonWrapper {
+  padding:10px;
+  background-color: antiquewhite;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  max-height: 50px;
+}
+
+.search-box .sortButtonWrapper .sortButton {
+  text-align: center;
+  background-color: antiquewhite;
+  outline: none;
+  margin-left: 15px;
+  border-radius: 5px;
+  border-color: beige;
+  padding:5px;
+}
+
+.search-box .sortButtonWrapper .selectSort{
+  border: none;
+  outline: none;
+  padding: 5px;
+  background-color: aliceblue;
+  border-radius: 2px;
 }
  
 .dayEntry .editEntry .editButton {
